@@ -3,6 +3,7 @@
 import time
 import paho.mqtt.client as paho
 from paho import mqtt
+import fan_library # replace with the appropriate fan control library
 
 
 # this is a MQTT client that is able to publish to and subscribe from MQTT topics in HiveMQ Cloud
@@ -12,6 +13,8 @@ class MQTTClient:
         self.username = username
         self.password = password
         self.client = None
+        self.fan = fan_library.Fan() # create an instance of the fan control class
+
 
     def get_client(self):
         return self.client
